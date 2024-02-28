@@ -87,16 +87,10 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
         val data: HashMap<String, Any> = hashMapOf()
 
-//        data["ID"] = firebaseUtil.currentUserId().toString()
-//        data["email"] = firebaseUtil.currentUserEmail().toString()
-//        data["User_Name"] = username
-
         val userDocument = database.collection("users").document(auth.uid.toString())
         userDocument.get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot.exists()) {
-                    // Tài liệu đã tồn tại, bạn có thể lấy giá trị từ documentSnapshot
-//                    Log.d("TAG", "Existing User_Name: ${documentSnapshot.getString("User_Name")}")
                     userModel = documentSnapshot.toObject(UserModel::class.java)
                     Log.d("TAG", "Existing User_Name: ${userModel!!.mUserName}")
                     binding.edtUsername.setText(userModel!!.mUserName)
