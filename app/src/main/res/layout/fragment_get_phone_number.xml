@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.GetPhoneNumberFragment">
+
+    <ImageView
+        android:id="@+id/backFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:background="@drawable/back" />
+
+    <TextView
+        style="@style/enter_your_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="@string/enter_your_phone_number" />
+
+    <TextView
+        style="@style/please_conf"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="6sp"
+        android:maxLines="2"
+        android:text="@string/please_confirm"
+        android:translationY="-3.21sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:padding="20dp">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/keynational"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtphone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="@string/phone_number"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btncontinue"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/black"
+        android:text="@string/continue_"
+        android:layout_margin="30dp"/>
+
+</LinearLayout>

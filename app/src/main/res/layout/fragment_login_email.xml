@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.LoginEmailFragment">
+
+
+
+
+    <EditText
+        android:id="@+id/tk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:hint="@string/nh_p_t_n_t_i_kho_n"
+        android:textAlignment="textStart"
+        android:elevation="5dp"
+        android:background="@drawable/edit_text_rounded_corner"
+        app:layout_constraintBottom_toTopOf="@+id/mk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.905"
+        android:elegantTextHeight="true"
+        />
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/mk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_rounded_corner"
+        android:layout_margin="30dp"
+        android:layout_marginBottom="76dp"
+        android:hint="Nhập Mật Khẩu"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        tools:layout_editor_absoluteX="30dp"
+        android:elevation="5dp"
+        android:elegantTextHeight="true"/>
+    <TextView
+        android:id="@+id/txtsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dangki"
+        android:layout_marginLeft="30dp"
+        android:elevation="5dp"
+        />
+    <TextView
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ng_nh_p"
+        android:background="@drawable/button"
+        android:gravity="center"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_conversion_absoluteWidth="91dp"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="308dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:elevation="5dp"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
