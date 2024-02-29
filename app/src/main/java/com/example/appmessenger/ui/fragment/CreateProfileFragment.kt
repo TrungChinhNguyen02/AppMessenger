@@ -97,5 +97,4 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
                 Log.e("TAG", "Error getting document", exception)
             }
     }
-
 }
