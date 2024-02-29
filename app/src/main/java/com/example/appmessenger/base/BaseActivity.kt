@@ -22,7 +22,11 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     protected abstract fun createView()
 
-    open fun addFragment(fragment: Fragment, viewId: Int = android.R.id.content, addToBackStack: Boolean = false) {
+    open fun addFragment(
+        fragment: Fragment,
+        viewId: Int = android.R.id.content,
+        addToBackStack: Boolean = false
+    ) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.setCustomAnimations(
             R.anim.slide_in,
@@ -37,7 +41,11 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         transaction.commit()
     }
 
-    open fun replaceFragment(fragment: Fragment, viewId: Int = android.R.id.content, addToBackStack: Boolean = true) {
+    open fun replaceFragment(
+        fragment: Fragment,
+        viewId: Int = android.R.id.content,
+        addToBackStack: Boolean = true
+    ) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(viewId, fragment)
         transaction.setCustomAnimations(
@@ -51,6 +59,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         }
         transaction.commit()
     }
+
     fun startActivity(destinationActivity: Class<*>) {
         startActivity(Intent(this, destinationActivity))
     }

@@ -18,5 +18,5 @@ class UserModel(
 
     }
 
-    constructor() : this("", "", null)
+    constructor() : this("", "", "")
 }

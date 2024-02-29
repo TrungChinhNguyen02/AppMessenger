@@ -19,7 +19,6 @@ class AndroidUtil {
         intent.putExtra("username", model.mUserName)
         intent.putExtra("email", model.mEmail)
         intent.putExtra("userId", model.mUId)
-
     }
 
     fun getUserModelFromIntent(intent: Intent): UserModel? {
