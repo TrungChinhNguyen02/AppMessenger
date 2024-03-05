@@ -8,28 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.appmessenger.firebase.FirestoreSearchUser
+
 import com.example.appmessenger.adapters.AdapterSearchUser
 import com.example.appmessenger.base.BaseFragment
 import com.example.appmessenger.databinding.FragmentSearchUserBinding
 import com.example.appmessenger.models.UserModel
 import com.example.appmessenger.utils.FirebaseUtill
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchUserFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
     private var adapter: AdapterSearchUser? = null
     private lateinit var recyclerView: RecyclerView
@@ -49,9 +36,8 @@ class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
                 binding.seachUsernameInput.error = "Invalid Username"
                 return@setOnClickListener
             } else {
-//                getUserInfo(searchItem)
                 setupSearchRecyclerView(searchItem)
-                getUserInfo(searchItem)
+//                getUserInfo(searchItem)
             }
         }
     }

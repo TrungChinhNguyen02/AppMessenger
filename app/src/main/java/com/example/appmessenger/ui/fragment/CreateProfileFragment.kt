@@ -43,11 +43,10 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        getUsername()
+        binding.loading.visibility = View.VISIBLE
         addDatatoFireBaseStore()
         binding.backProfile.setOnClickListener {
-            replaceFragment(GetCodePhoneFragment(), R.id.containerFragment, false)
+            replaceFragment(LoginEmailFragment(), R.id.containerFragment, false)
         }
 
         binding.btnsave.setOnClickListener {
@@ -70,18 +69,6 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
             startActivity(intent)
         }
     }
-    fun getUsername() {
-//    setInProgress(true)
-        firebaseUtil.currentUserDetails()!!.get().addOnCompleteListener { task ->
-//        setInProgress(false)
-            if (task.isSuccessful) {
-                userModel = task.result?.toObject(UserModel::class.java)
-                if (userModel != null) {
-                    binding.edtUsername.setText(userModel!!.mUserName)
-                }
-            }
-        }
-    }
 
         private fun addDatatoFireBaseStore() {
         val database: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -93,6 +80,7 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
                 if (documentSnapshot.exists()) {
                     userModel = documentSnapshot.toObject(UserModel::class.java)
                     Log.d("TAG", "Existing User_Name: ${userModel!!.mUserName}")
+                    binding.loading.visibility = View.GONE
                     binding.edtUsername.setText(userModel!!.mUserName)
                 } else {
                     // Tài liệu không tồn tại, bạn có thể thêm mới

@@ -34,22 +34,26 @@ class AdapterSearchUser(options: FirestoreRecyclerOptions<UserModel>, private va
     }
 
     override fun onBindViewHolder(holder: UserModelViewHolder, position: Int, model: UserModel) {
-        holder.username.text = model.mUserName
-        holder.emailText.text = model.mEmail
 
         if (model.mUId == firebaseUtill.currentUserId()) {
             holder.username.text = model.mUserName + " (Me)"
+            holder.emailText.text = model.mEmail
+        }else{
+            holder.username.text = model.mUserName
+            holder.emailText.text = model.mEmail
         }
 
-        firebaseUtill.getCurrentProfilePicStorageRef().downloadUrl
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val uri: Uri? = task.result
-                    if (uri != null) {
-                        AndroidUtil().setProfilePic(context, uri, holder.userpic)
-                    }
-                }
-            }
+
+
+//        firebaseUtill.getCurrentProfilePicStorageRef().downloadUrl
+//            .addOnCompleteListener { task ->
+//                if (task.isSuccessful) {
+//                    val uri: Uri? = task.result
+//                    if (uri != null) {
+//                        AndroidUtil().setProfilePic(context, uri, holder.userpic)
+//                    }
+//                }
+//            }
 
         holder.itemView.setOnClickListener {
             //navigate to chat activity

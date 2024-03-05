@@ -45,6 +45,8 @@ class SignUpFragment : BaseFragment<FragmentSignInBinding>(), ISignIn {
     }
 
     override fun LoginSuccessful() {
+        Toast.makeText(requireActivity(), "Đăng kí thành công", Toast.LENGTH_SHORT).show()
+
         val bundle = Bundle().apply {
             putString(
                 "username",

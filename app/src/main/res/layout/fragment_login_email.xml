@@ -8,9 +8,6 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.LoginEmailFragment">
 
-
-
-
     <EditText
         android:id="@+id/tk"
         android:layout_width="match_parent"
@@ -64,5 +61,13 @@
         android:layout_marginTop="50dp"
         android:elevation="5dp"
         android:textColor="@color/white"/>
-
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadingprogress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            app:lottie_speed="3"
+            app:lottie_rawRes="@raw/loading"/>
 </LinearLayout>
