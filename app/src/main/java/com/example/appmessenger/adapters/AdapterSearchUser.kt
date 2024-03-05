@@ -1,10 +1,8 @@
 package com.example.appmessenger.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +14,6 @@ import com.example.appmessenger.models.UserModel
 import com.example.appmessenger.ui.activity.ChatActivity
 import com.example.appmessenger.utils.AndroidUtil
 import com.example.appmessenger.utils.FirebaseUtill
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class AdapterSearchUser(private val userList: MutableList<UserModel> = mutableListOf(), private val context: Context) :
