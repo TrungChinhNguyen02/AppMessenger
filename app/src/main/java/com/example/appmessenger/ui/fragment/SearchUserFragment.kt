@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
     private var adapter: AdapterSearchUser? = null
     private lateinit var recyclerView: RecyclerView
-
+    val userModels: MutableList<UserModel> = mutableListOf()
     override fun getViewBinding(
         inflater: LayoutInflater, container: ViewGroup?
     ): FragmentSearchUserBinding {
@@ -36,11 +36,11 @@ class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
                 binding.seachUsernameInput.error = "Invalid Username"
                 return@setOnClickListener
             } else {
-                setupSearchRecyclerView(searchItem)
-//                getUserInfo(searchItem)
+                getUserInfo(searchItem)
             }
         }
     }
+
     private fun getUserInfo(email: String) {
         val db = FirebaseFirestore.getInstance()
         db.collection("users")
@@ -50,15 +50,16 @@ class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
                 if (!querySnapshot.isEmpty) {
                     // Lấy document đầu tiên (trong trường hợp có nhiều document)
                     val documentSnapshot = querySnapshot.documents[0]
-
                     // Lấy dữ liệu từ document
                     val name = documentSnapshot.getString("muserName")
                     val userEmail = documentSnapshot.getString("memail")
-                    Log.d("TAG", "$userEmail")
-
-                    // Hiển thị thông tin người dùng trong TextViews (ví dụ)
+                    val uId = documentSnapshot.getString("muid")
+                    val userModel = UserModel(userEmail!!, name!!, uId)
+                    userModels.clear()
+                    userModels.add(userModel)
+                    Log.d("TAG", "${userModel!!.mEmail}, ${userModel!!.mUserName}, ${userModel!!.mUId}")
+                    updateRecyclerView(userModels)
                 } else {
-                    // Nếu không có kết quả
                     Log.d("TAG", "Không tìm thấy thông tin người dùng")
                 }
             }
@@ -67,31 +68,12 @@ class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
                 Log.e("TAG", "Lỗi khi truy vấn dữ liệu", e)
             }
     }
-    private fun setupSearchRecyclerView(searchTeam: String) {
-        val query = FirebaseUtill().allUserCollectionReference()
-            .whereEqualTo("memail", searchTeam)
-        val options =
-            FirestoreRecyclerOptions.Builder<UserModel>().setQuery(query, UserModel::class.java)
-                .build()
 
-        adapter = AdapterSearchUser(options, requireContext())
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adapter
-        adapter?.startListening()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        adapter?.startListening()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        adapter?.stopListening()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        adapter?.startListening()
+    private fun updateRecyclerView(userModel: MutableList<UserModel>) {
+        activity?.runOnUiThread {
+            val adapter = AdapterSearchUser(userModels, requireContext())
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = adapter
+        }
     }
 }
