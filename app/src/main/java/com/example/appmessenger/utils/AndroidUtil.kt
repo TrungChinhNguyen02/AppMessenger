@@ -19,15 +19,17 @@ class AndroidUtil {
         intent.putExtra("username", model.mUserName)
         intent.putExtra("email", model.mEmail)
         intent.putExtra("userId", model.mUId)
+
     }
 
     fun getUserModelFromIntent(intent: Intent): UserModel? {
         val userModel = UserModel()
-        userModel.mUserName(intent.getStringExtra("username"))
-        userModel.mEmail(intent.getStringExtra("email"))
-        userModel.mUId(intent.getStringExtra("userId"))
+        userModel.mUserName = intent.getStringExtra("username").toString()
+        userModel.mEmail = intent.getStringExtra("email").toString()
+        userModel.mUId = intent.getStringExtra("userId").toString() // Correct assignment for mUId
         return userModel
     }
+
     fun setProfilePic(context: Context, imageUri: Uri, imageView: ImageView) {
         Glide.with(context)
             .load(imageUri)

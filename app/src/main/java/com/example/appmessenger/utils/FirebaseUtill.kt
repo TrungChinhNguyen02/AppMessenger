@@ -27,6 +27,23 @@ class FirebaseUtill {
     fun allUserCollectionReference(): CollectionReference {
         return FirebaseFirestore.getInstance().collection("users")
     }
+
+    fun getChatRoom(chatId: String): DocumentReference {
+        return FirebaseFirestore.getInstance().collection("chatrooms").document(chatId)
+    }
+
+    fun chatRoomMessage(chatId: String): CollectionReference {
+        return getChatRoom(chatId).collection("chats")
+    }
+
+    fun getChatroomId(userId1: String, userId2: String): String {
+        return if (userId1.hashCode() < userId2.hashCode()) {
+            userId1 + "_" + userId2
+        } else {
+            userId2 + "_" + userId1
+        }
+    }
+
     fun getOtherUserFromChatroom(userIds: List<String>): DocumentReference {
         return if (userIds[0] == FirebaseUtill().currentUserId()) {
             allUserCollectionReference().document(userIds[1])
@@ -34,9 +51,11 @@ class FirebaseUtill {
             allUserCollectionReference().document(userIds[0])
         }
     }
+
     fun getCurrentProfilePicStorageRef(): StorageReference {
         return FirebaseStorage.getInstance().reference
             .child("profile_pic")
             .child(FirebaseUtill().currentUserId() ?: "")
     }
+
 }

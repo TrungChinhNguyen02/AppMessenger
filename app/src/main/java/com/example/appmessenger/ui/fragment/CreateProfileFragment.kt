@@ -62,7 +62,7 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
             return
         }
 
-        if (auth.currentUser?.uid != null) {
+        if (auth.currentUser?.uid == null) {
             addDatatoFireBaseStore()
         } else {
             val intent = Intent(requireContext(), HomeActivity::class.java)

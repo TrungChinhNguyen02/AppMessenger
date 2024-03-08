@@ -22,13 +22,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
         replaceFragment(SplashFragment(), R.id.containerFragment, false)
         handler.postDelayed({
-//            if (firebaseUtil.isLoggedIn()){
-//              startActivity(HomeActivity::class.java)
-//            }else{
+            if (firebaseUtil.isLoggedIn()){
+              startActivity(HomeActivity::class.java)
+            }else{
                 replaceFragment(LoginEmailFragment(),R.id.containerFragment,false)
-//            }
-//            finish()
-        },5000)
+            }
+            finish()
+        },3000)
     }
 
 }

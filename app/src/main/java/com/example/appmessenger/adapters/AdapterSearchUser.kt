@@ -3,6 +3,7 @@ package com.example.appmessenger.adapters
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +51,7 @@ class AdapterSearchUser(private val userList: MutableList<UserModel> = mutableLi
                     }
                 }
             }
+        Log.d("ahyhy", "${model.mUId}")
 
         holder.itemView.setOnClickListener {
             //navigate to chat activity

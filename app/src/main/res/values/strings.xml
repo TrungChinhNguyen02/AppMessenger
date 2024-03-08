@@ -17,15 +17,17 @@
     <string name="chats">Chats</string>
     <string name="move">Move</string>
     <string name="account">Account</string>
-    <string name="nh_p_t_n_t_i_kho_n">Nhập Tên Tài Khoản</string>
+    <string name="nh_p_t_n_t_i_kho_n">Nhập Email của bạn</string>
     <string name="ng_nh_p">Đăng Nhập</string>
     <string name="dangki">Bạn chưa có tài khoản? Đăng Kí</string>
     <string name="signup">Đăng kí</string>
-    <string name="firstname">First Name</string>
-    <string name="lastname">Last Name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="firstname">Nhập tên của bạn</string>
+    <string name="lastname">Nhập họ của bạn</string>
+    <string name="email">Nhập Email</string>
+    <string name="password">Nhập password</string>
     <string name="next">Next</string>
     <string name="user_name">User Name</string>
     <string name="username">Tên Người Dùng</string>
+    <string name="login_email">Đăng Nhập</string>
+    <string name="signin">Đăng kí</string>
 </resources>

@@ -54,7 +54,7 @@ class SearchUserFragment : BaseFragment<FragmentSearchUserBinding>() {
                     val name = documentSnapshot.getString("muserName")
                     val userEmail = documentSnapshot.getString("memail")
                     val uId = documentSnapshot.getString("muid")
-                    val userModel = UserModel(userEmail!!, name!!, uId)
+                    val userModel = UserModel(userEmail!!, name!!, uId!!)
                     userModels.clear()
                     userModels.add(userModel)
                     Log.d("TAG", "${userModel!!.mEmail}, ${userModel!!.mUserName}, ${userModel!!.mUId}")

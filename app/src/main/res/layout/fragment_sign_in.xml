@@ -5,27 +5,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.fragment.SignUpFragment">
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_bg_1"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signin"
+        android:textSize="24dp"
+        android:padding="15dp"
+        android:layout_gravity="center_horizontal"/>
+  </LinearLayout>
   <EditText
       android:id="@+id/firstname"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="30dp"
       android:gravity="center_vertical"
-      android:hint="@string/firstname"/>
+      android:hint="@string/firstname"
+      android:background="@drawable/edit_text_rounded_corner"
+      android:padding="10dp"/>
   <EditText
       android:id="@+id/lastname"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="30dp"
       android:gravity="center_vertical"
-      android:hint="@string/lastname"/>
+      android:hint="@string/lastname"
+      android:background="@drawable/edit_text_rounded_corner"
+      android:padding="10dp"/>
   <EditText
       android:id="@+id/tk"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="30dp"
       android:gravity="center_vertical"
-      android:hint="@string/email"/>
+      android:hint="@string/email"
+      android:background="@drawable/edit_text_rounded_corner"
+      android:padding="10dp"/>
 
     <EditText
         android:inputType="textPassword"
@@ -34,7 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:gravity="center_vertical"
-        android:hint="@string/password"/>
+        android:hint="@string/password"
+        android:background="@drawable/edit_text_rounded_corner"
+        android:padding="10dp" />
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
