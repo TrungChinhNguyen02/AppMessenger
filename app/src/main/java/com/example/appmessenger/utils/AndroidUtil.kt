@@ -11,10 +11,6 @@ import com.example.appmessenger.models.UserModel
 
 
 class AndroidUtil {
-    fun showToast(context: Context, message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-    }
-
     fun passUserModelAsIntent(intent: Intent, model: UserModel) {
         intent.putExtra("username", model.mUserName)
         intent.putExtra("email", model.mEmail)

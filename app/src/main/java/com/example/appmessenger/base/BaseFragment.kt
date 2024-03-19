@@ -65,7 +65,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         return android.R.id.content
     }
     protected fun startActivity(destinationActivity: Class<*>) {
-        val intent = Intent(requireContext(), destinationActivity)
+        val intent = Intent(requireActivity(), destinationActivity)
         startActivity(intent)
     }
 }

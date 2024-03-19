@@ -1,6 +1,7 @@
 package com.example.appmessenger.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class ChatAdapter(options: FirestoreRecyclerOptions<ChatModel>, private val cont
     }
 
     override fun onBindViewHolder(holder: ChatModelViewHolder, position: Int, model: ChatModel) {
+        Log.d("ChatAdapter", "onBindViewHolder: ahuhu ")
         if (model.senderId == FirebaseUtill().currentUserId()) {
             holder.userChatlayout.visibility = View.GONE
             holder.youChatLayout.visibility = View.VISIBLE

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppMessenger</string>
+
+    <string name="hello_blank_fragment">Xin chào fragment trống</string>
+    <string name="enter_your_phone_number">Nhập số điện thoại của bạn</string>
+    <string name="please_confirm">Vui lòng xác nhận mã quốc gia của bạn và nhập số điện thoại của bạn</string>
+    <string name="continue_">Tiếp tục</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="enter_code">Nhập mã</string>
+    <string name="we_have_sent">Chúng tôi đã gửi cho bạn một tin nhắn SMS với mã vào +62 1309 - 1710 - 1920</string>
+    <string name="resend_code">Gửi lại mã</string>
+    <string name="your_profile">Hồ sơ của bạn</string>
+    <string name="save">Lưu</string>
+    <string name="first_name">Tên</string>
+    <string name="last_name">Họ</string>
+    <string name="contacts">Danh bạ</string>
+    <string name="chats">Trò chuyện</string>
+    <string name="move">Di chuyển</string>
+    <string name="account">Tài khoản</string>
+    <string name="nh_p_t_n_t_i_kho_n">Nhập địa chỉ email của bạn</string>
+    <string name="ng_nh_p">Đăng nhập</string>
+    <string name="dangki">Bạn chưa có tài khoản? Đăng ký</string>
+    <string name="signup">Đăng ký</string>
+    <string name="firstname">Nhập tên của bạn</string>
+    <string name="lastname">Nhập họ của bạn</string>
+    <string name="email">Nhập email</string>
+    <string name="password">Nhập mật khẩu</string>
+    <string name="next">Tiếp</string>
+    <string name="user_name">Tên người dùng</string>
+    <string name="username">Tên tài khoản</string>
+    <string name="login_email">Đăng nhập bằng Email</string>
+    <string name="signin">Đăng ký</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="sign_out">Đăng xuất</string>
+    <string name="theme">Giao diện</string>
+</resources>

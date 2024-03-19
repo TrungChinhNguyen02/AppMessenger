@@ -18,7 +18,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         return ActivityLoginBinding.inflate(layoutInflater)
     }
 
-    override fun createView() {
+    override fun createView() {    
 
         replaceFragment(SplashFragment(), R.id.containerFragment, false)
         handler.postDelayed({
@@ -27,7 +27,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             }else{
                 replaceFragment(LoginEmailFragment(),R.id.containerFragment,false)
             }
-            finish()
         },3000)
     }
 

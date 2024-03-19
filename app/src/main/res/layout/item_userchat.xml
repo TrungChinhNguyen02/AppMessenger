@@ -2,17 +2,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/edit_text_rounded_corner"
     android:layout_margin="10dp"
     android:elevation="2dp">
 
-    <include layout="@layout/profile_pic_view"
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/avatarother"
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        />
-
+        android:background="@drawable/profile"
+        android:layout_margin="5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1:1"
+        app:shapeAppearanceOverlay="@style/ImageView.Corner.20"
+        android:layout_gravity="center_vertical"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

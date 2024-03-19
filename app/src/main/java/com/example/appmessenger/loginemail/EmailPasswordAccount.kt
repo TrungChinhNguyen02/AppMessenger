@@ -41,11 +41,4 @@ class EmailPasswordAccount (private val mILogin : ISignIn){
             }
         }
     }
-    fun saveUser( firstName : String, lastName : String, email : String){
-        val mUser = User(firstName,lastName,email)
-        val database = FirebaseDatabase.getInstance()
-        val userRef = database.getReference("User")
-        userRef.child(auth.uid.toString()).setValue(mUser)
-        Log.d("TAG", "saveUser: ahiahi ")
-    }
 }

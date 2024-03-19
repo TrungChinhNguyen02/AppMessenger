@@ -23,7 +23,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         binding.bottomNavi.apply {
             add(MeowBottomNavigation.Model(1, R.drawable.contacts))
             add(MeowBottomNavigation.Model(2, R.drawable.message))
-            add(MeowBottomNavigation.Model(3, R.drawable.move))
+            add(MeowBottomNavigation.Model(3, R.drawable.profile))
         }
         binding.bottomNavi.setOnClickMenuListener { item ->
             when (item.id) {

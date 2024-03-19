@@ -1,9 +1,11 @@
 package com.example.appmessenger.ui.activity
 
 
+import android.net.Uri
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.appmessenger.adapters.ChatAdapter
 import com.example.appmessenger.base.BaseActivity
 import com.example.appmessenger.databinding.ActivityChatBinding
@@ -15,13 +17,12 @@ import com.example.appmessenger.utils.FirebaseUtill
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.Query
+import java.util.Locale
 
 class ChatActivity : BaseActivity<ActivityChatBinding>() {
-    val clearText: String? = null
     var otherId: String? = null
     var chatroomId: String? = null
     var chatroomModel: ChatRoomModel? = null
-    var chatModel: ChatModel? = null
     var adapter: ChatAdapter? = null
     var recyclerView: RecyclerView? = null
     var otherUser: UserModel? = null
@@ -40,7 +41,6 @@ class ChatActivity : BaseActivity<ActivityChatBinding>() {
         }
         otherId = otherUser!!.mUId
 
-
         //get UserModel
         chatroomId =
             FirebaseUtill().getChatroomId(FirebaseUtill().currentUserId()!!, otherId!!)
@@ -57,6 +57,7 @@ class ChatActivity : BaseActivity<ActivityChatBinding>() {
         }
 
         binding.usernamechat.text = otherUser!!.mUserName
+        getAvata()
 
         getOrCreateChatroomModel()
         setupChatRecyclerview()
@@ -104,7 +105,7 @@ class ChatActivity : BaseActivity<ActivityChatBinding>() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         // Clear the message input field after sending the message
-                       binding.inputMessenger.text.clear()
+                       binding.inputMessenger.text = null
 
                         // Send a notification for the new message
 //                        sendNotification(message)
@@ -113,18 +114,12 @@ class ChatActivity : BaseActivity<ActivityChatBinding>() {
         }
     }
 
-//    private fun sendNotification(message: String) {
-//
-//    }
-
-
     private fun getOrCreateChatroomModel() {
         FirebaseUtill().getChatRoom(chatroomId!!).get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val result = task.result
-                    if (result != null) {
-                        chatroomModel = result.toObject(ChatRoomModel::class.java)
+                    chatroomModel = task.result.toObject(ChatRoomModel::class.java)
+                    Log.d("TAG", "getOrCreateChatroomModel:${chatroomModel!!.chatroomId} ")
                         if (chatroomModel == null) {
                             // First time chat
                             chatroomModel = ChatRoomModel(
@@ -135,7 +130,17 @@ class ChatActivity : BaseActivity<ActivityChatBinding>() {
                             )
                             FirebaseUtill().getChatRoom(chatroomId!!).set(chatroomModel!!)
                         }
-                    }
+
+                }
+            }
+    }
+    fun getAvata(){
+        FirebaseUtill().getAvatarUserOther(otherId!!)
+            .getDownloadUrl()
+            .addOnCompleteListener { t ->
+                if (t.isSuccessful()) {
+                    val uri: Uri = t.getResult()
+                    Glide.with(this).load(uri).into(binding.avaUser)
                 }
             }
     }

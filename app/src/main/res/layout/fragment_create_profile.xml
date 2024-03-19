@@ -17,22 +17,19 @@
         app:drawableStartCompat="@drawable/back"
         />
 
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_circle"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="50dp">
 
-        <View
+        <ImageView
             android:id="@+id/bgavatar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_avatar"
-            android:elevation="4dp" />
-    </FrameLayout>
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/profile"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:1"
+            app:shapeAppearanceOverlay="@style/ImageView.Corner.20"
+            android:layout_gravity="center_horizontal"/>
+
     <EditText
         android:id="@+id/edtUsername"
         android:layout_width="match_parent"
@@ -60,11 +57,12 @@
         android:elevation="5dp"/>
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:lottie_rawRes="@raw/loading"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:visibility="gone"
-        app:lottie_speed="3"
-        app:lottie_rawRes="@raw/loading"/>
+        android:paddingBottom="30dp"
+        app:lottie_speed="2"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
 </LinearLayout>

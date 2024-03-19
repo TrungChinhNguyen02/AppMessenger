@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.LoginEmailFragment">
 <LinearLayout
+    android:paddingTop="15dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
@@ -79,13 +80,14 @@
         android:layout_marginTop="50dp"
         android:elevation="5dp"
         android:textColor="@color/white"/>
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/loadingprogress"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:visibility="gone"
-            app:lottie_speed="3"
-            app:lottie_rawRes="@raw/loading"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingprogress"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:lottie_rawRes="@raw/loading"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="30dp"
+        app:lottie_speed="2"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
 </LinearLayout>

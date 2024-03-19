@@ -25,7 +25,9 @@ class LoginEmailFragment : BaseFragment<FragmentLoginEmailBinding>(),ISignIn {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
          mLogin = EmailPasswordAccount(this)
+        binding.loadingprogress.visibility = View.GONE
         binding.btnLogin.setOnClickListener {
+            binding.loadingprogress.visibility = View.VISIBLE
             val tk = binding.tk.text.toString()
             val mk = binding.mk.text.toString()
             checkTkMkUi(tk,mk)
@@ -42,7 +44,6 @@ class LoginEmailFragment : BaseFragment<FragmentLoginEmailBinding>(),ISignIn {
     }
 
     override fun LoginSuccessful() {
-        binding.loadingprogress.visibility = View.GONE
         Toast.makeText(requireActivity(), "đăng nhập thành công", Toast.LENGTH_SHORT).show()
         replaceFragment(CreateProfileFragment(), R.id.containerFragment, false)
     }
@@ -50,7 +51,6 @@ class LoginEmailFragment : BaseFragment<FragmentLoginEmailBinding>(),ISignIn {
         if (tk.isNotEmpty() && mk.isNotEmpty()) {
             // Nếu cả tài khoản và mật khẩu đều không trống
             // Thực hiện đăng nhập
-            binding.loadingprogress.visibility = View.VISIBLE
             mLogin.LogInEmail(tk, mk)
         } else {
             // Nếu có ít nhất một trường không được nhập

@@ -1,60 +1,113 @@
 package com.example.appmessenger.ui.fragment
 
+import android.Manifest
+import android.app.Dialog
+import android.content.Context
+import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.appmessenger.R
+import com.example.appmessenger.base.BaseFragment
+import com.example.appmessenger.databinding.FragmentMoveBinding
+import com.example.appmessenger.models.UserModel
+import com.example.appmessenger.ui.activity.LoginActivity
+import com.example.appmessenger.utils.FirebaseUtill
+import com.google.firebase.auth.FirebaseAuth
+import com.hbb20.CountryCodePicker.Language
+import java.util.Locale
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MoveFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MoveFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class MoveFragment : BaseFragment<FragmentMoveBinding>() {
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentMoveBinding {
+      return FragmentMoveBinding.inflate(inflater,container,false)
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getInformation()
+        binding.signout.setOnClickListener {
+          FirebaseUtill().logout()
+            startActivity(LoginActivity::class.java)
         }
+        binding.selectlanguage.setOnClickListener {
+            showDialog()
+        }
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_move, container, false)
+    fun getInformation(){
+        getAvatarUser()
+        val sharedPreferences = requireContext().getSharedPreferences("information", Context.MODE_PRIVATE)
+        val userName = sharedPreferences.getString("username","")
+        val userEmail = sharedPreferences.getString("useremail","")
+        binding.nameuser.setText(userName)
+        binding.emailUser.setText(userEmail)
     }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MoveFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MoveFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    fun getAvatarUser(){
+        FirebaseUtill().getAvatarUser().downloadUrl
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    val userUri = task.result
+                    Glide.with(requireContext()).load(userUri).into(binding.itemavatar)
                 }
             }
     }
+    fun showDialog() {
+
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_languages)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        var selectLanguage: String? = null
+        val btnCancel = dialog.findViewById<ImageView>(R.id.cancelbtn)
+        val btnaccept = dialog.findViewById<TextView>(R.id.btntranslate)
+        val english : LinearLayout = dialog.findViewById(R.id.english)
+        val vietnames : LinearLayout = dialog.findViewById(R.id.vietnam)
+        val checkvietnam: ImageView = dialog.findViewById(R.id.okvietnam)
+        val checkEnglish: ImageView = dialog.findViewById(R.id.okenglish)
+
+
+        english.setOnClickListener {
+            selectLanguage = "en"
+                checkEnglish.visibility = View.VISIBLE
+            checkvietnam.visibility = View.GONE
+
+        }
+        vietnames.setOnClickListener {
+            selectLanguage = "vi"
+            checkvietnam.visibility = View.VISIBLE
+            checkEnglish.visibility = View.GONE
+
+        }
+
+        btnCancel.setOnClickListener {
+            dialog.hide()
+        }
+        btnaccept.setOnClickListener {
+
+            val locale = Locale("en")
+            Locale.setDefault(locale)
+            val config = Configuration()
+            config.locale = locale
+            resources.updateConfiguration(config, resources.displayMetrics)
+        }
+        dialog.show()
+
+    }
+
 }

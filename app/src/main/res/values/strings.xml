@@ -1,33 +1,37 @@
 <resources>
-    <string name="app_name">AppMessenger</string>
+    <string name="app_name" translatable="false">AppMessenger</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="enter_your_phone_number">Enter Your Phone Number</string>
-    <string name="please_confirm">Please confirm your country code and enter your phone number</string>
-    <string name="continue_">Continue</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="enter_code">Enter Code</string>
-    <string name="we_have_sent">We have sent you an SMS with the code to +62 1309 - 1710 - 1920</string>
-    <string name="resend_code">Resend Code</string>
-    <string name="your_profile">Your Profile</string>
-    <string name="save">Save</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="contacts">Contacts</string>
-    <string name="chats">Chats</string>
-    <string name="move">Move</string>
-    <string name="account">Account</string>
-    <string name="nh_p_t_n_t_i_kho_n">Nhập Email của bạn</string>
-    <string name="ng_nh_p">Đăng Nhập</string>
-    <string name="dangki">Bạn chưa có tài khoản? Đăng Kí</string>
-    <string name="signup">Đăng kí</string>
-    <string name="firstname">Nhập tên của bạn</string>
-    <string name="lastname">Nhập họ của bạn</string>
-    <string name="email">Nhập Email</string>
-    <string name="password">Nhập password</string>
-    <string name="next">Next</string>
-    <string name="user_name">User Name</string>
-    <string name="username">Tên Người Dùng</string>
-    <string name="login_email">Đăng Nhập</string>
-    <string name="signin">Đăng kí</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="enter_your_phone_number" translatable="false">Enter Your Phone Number</string>
+    <string name="please_confirm" translatable="false">Please confirm your country code and enter your phone number</string>
+    <string name="continue_" translatable="false">Continue</string>
+    <string name="phone_number" translatable="false">Phone Number</string>
+    <string name="enter_code" translatable="false">Enter Code</string>
+    <string name="we_have_sent" translatable="false">We have sent you an SMS with the code to +62 1309 - 1710 - 1920</string>
+    <string name="resend_code" translatable="false">Resend Code</string>
+    <string name="your_profile" translatable="false">Your Profile</string>
+    <string name="save" translatable="false">Save</string>
+    <string name="first_name" translatable="false">First Name</string>
+    <string name="last_name" translatable="false">Last Name</string>
+    <string name="contacts" translatable="false">Contacts</string>
+    <string name="chats" translatable="false">Chats</string>
+    <string name="move" translatable="false">Move</string>
+    <string name="account" translatable="false">Account</string>
+    <string name="nh_p_t_n_t_i_kho_n" translatable="false">Enter your email</string>
+    <string name="ng_nh_p" translatable="false">Login</string>
+    <string name="dangki" translatable="false">Don\'t have an account? Sign Up</string>
+    <string name="signup" translatable="false">Sign Up</string>
+    <string name="firstname" translatable="false">Enter your first name</string>
+    <string name="lastname" translatable="false">Enter your last name</string>
+    <string name="email" translatable="false">Enter Email</string>
+    <string name="password" translatable="false">Enter password</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="user_name" translatable="false">User Name</string>
+    <string name="username" translatable="false">Username</string>
+    <string name="login_email" translatable="false">Login with Email</string>
+    <string name="signin" translatable="false">Sign Up</string>
+    <string name="language" translatable="false">Language</string>
+    <string name="sign_out" translatable="false">Sign Out</string>
+    <string name="theme" translatable="false">Theme</string>
+    <string name="translate" translatable="false">Translate</string>
 </resources>

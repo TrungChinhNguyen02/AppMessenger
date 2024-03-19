@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.appmessenger.R
 import com.example.appmessenger.models.UserModel
 import com.example.appmessenger.ui.activity.ChatActivity
@@ -42,13 +43,12 @@ class AdapterSearchUser(private val userList: MutableList<UserModel> = mutableLi
             holder.username.text = model.mUserName + " (Me)"
         }
 
-        firebaseUtill.getCurrentProfilePicStorageRef().downloadUrl
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val uri: Uri? = task.result
-                    if (uri != null) {
-                        AndroidUtil().setProfilePic(context, uri, holder.userpic)
-                    }
+        FirebaseUtill().getAvatarUserOther(model.mUId)
+            .getDownloadUrl()
+            .addOnCompleteListener { t ->
+                if (t.isSuccessful()) {
+                    val uri: Uri = t.getResult()
+                    Glide.with(context).load(uri).into(holder.userpic)
                 }
             }
         Log.d("ahyhy", "${model.mUId}")

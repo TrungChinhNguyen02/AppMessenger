@@ -26,13 +26,18 @@
             android:layout_margin="10dp"
             android:background="@drawable/back" />
 
-        <include
-            android:id="@+id/ava_user"
-            layout="@layout/item_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/avaUser"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/profile"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:1"
+            app:shapeAppearanceOverlay="@style/ImageView.Corner.20"
+            android:layout_gravity="center_vertical"/>
 
         <TextView
             android:id="@+id/usernamechat"

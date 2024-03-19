@@ -59,6 +59,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.play:app-update-ktx:2.1.0")
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -77,7 +78,9 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
-
     //multiDex
     implementation("androidx.multidex:multidex:2.0.1")
+
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
+
 }
